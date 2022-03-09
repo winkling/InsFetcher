@@ -67,11 +67,11 @@ namespace InsFetcher
 
         static string GetJpgFileName(string url)
         {
-            var startIndex = url.IndexOf("p1080");
-            startIndex = url.IndexOf("/", startIndex);
-            var endIndex = url.IndexOf(".jpg");
+            var startIndex = url.IndexOf(".jpg");
+            url = url.Substring(0, startIndex + 4);
+            startIndex = url.LastIndexOf("/");
 
-            return url.Substring(startIndex + 1, endIndex - startIndex + 3);
+            return url.Substring(startIndex + 1);
 
         }
 
